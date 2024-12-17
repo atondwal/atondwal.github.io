@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/tondwalkar
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ani.sh
+  * I am tondwalkar (https://keybase.io/tondwalkar) on keybase.
+  * I have a public key ASDxmfMhnDtyNMmO_qKCRmC5MBwNrRRloThBe3-Yf3aE-wo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120f199f3219c3b7234c98efea2824660b9301c0dad1465a138417b7f987f7684fb0a",
+            "host": "keybase.io",
+            "kid": "0120f199f3219c3b7234c98efea2824660b9301c0dad1465a138417b7f987f7684fb0a",
+            "uid": "892460789d05676ca8a0e43935d3fb19",
+            "username": "tondwalkar"
+        },
+        "service": {
+            "hostname": "ani.sh",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.14"
+    },
+    "ctime": 1457319412,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1457319324,
+        "hash": "69196b1b45dc09a0898ac666fd5d02479840908bc6eccbbce13c94e38791b1ebf260f608e76b6c1a28844ca9225c35f03ff6241f071a9e42418d5feb15cae695",
+        "seqno": 402166
+    },
+    "prev": "9a37021a5ed945c6bac8762ad396a43e103e9169bd9e82c44c6b2f2dc3269569",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg8ZnzIZw7cjTJjv6igkZguTAcDa0UZaE4QXt/mH92hPsKp3BheWxvYWTFAu97ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZjE5OWYzMjE5YzNiNzIzNGM5OGVmZWEyODI0NjYwYjkzMDFjMGRhZDE0NjVhMTM4NDE3YjdmOTg3Zjc2ODRmYjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZjE5OWYzMjE5YzNiNzIzNGM5OGVmZWEyODI0NjYwYjkzMDFjMGRhZDE0NjVhMTM4NDE3YjdmOTg3Zjc2ODRmYjBhIiwidWlkIjoiODkyNDYwNzg5ZDA1Njc2Y2E4YTBlNDM5MzVkM2ZiMTkiLCJ1c2VybmFtZSI6InRvbmR3YWxrYXIifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImFuaS5zaCIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTQifSwiY3RpbWUiOjE0NTczMTk0MTIsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ1NzMxOTMyNCwiaGFzaCI6IjY5MTk2YjFiNDVkYzA5YTA4OThhYzY2NmZkNWQwMjQ3OTg0MDkwOGJjNmVjY2JiY2UxM2M5NGUzODc5MWIxZWJmMjYwZjYwOGU3NmI2YzFhMjg4NDRjYTkyMjVjMzVmMDNmZjYyNDFmMDcxYTllNDI0MThkNWZlYjE1Y2FlNjk1Iiwic2Vxbm8iOjQwMjE2Nn0sInByZXYiOiI5YTM3MDIxYTVlZDk0NWM2YmFjODc2MmFkMzk2YTQzZTEwM2U5MTY5YmQ5ZTgyYzQ0YzZiMmYyZGMzMjY5NTY5Iiwic2Vxbm8iOjksInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAm0aRFXg0VtqHdRIdg0evkroX5mir3sf5YPjj+vp20fZXfUL+COE3lphVahgbdzOjDb6pXOhgehbH7R/P/jLmD6hzaWdfdHlwZSCjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tondwalkar
+
+==================================================================
