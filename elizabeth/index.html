@@ -166,6 +166,24 @@
             object-fit: contain;
         }
         
+        .navigation-overlay {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .prev-overlay {
+            left: 0;
+            cursor: w-resize;
+        }
+        
+        .next-overlay {
+            right: 0;
+            cursor: e-resize;
+        }
+        
         .active {
             display: block;
         }
@@ -293,6 +311,8 @@
     <div id="section-photos" class="section-container">
         <!--SLIDESHOW_START-->
     <div class="slideshow-container">
+        <div class="navigation-overlay prev-overlay" onclick="prevSlide()"></div>
+        <div class="navigation-overlay next-overlay" onclick="nextSlide()"></div>
         <img class="slide active" src="photos/0Anish and Elizabeth (238).jpg" alt="Couple photo" width="4873" height="3283">
         <img class="slide" src="photos/0Anish and Elizabeth (284).jpg" alt="Couple photo" width="4804" height="3330">
         <img class="slide" src="photos/20171215_192847.jpg" alt="Couple photo" width="4128" height="2322">
@@ -398,37 +418,65 @@
         let slideIndex = 0;
         const slides = document.getElementsByClassName("slide");
         const dots = document.getElementsByClassName("dot");
+        let slideshowTimeout;
+        
+        function resetSlideshowTimer() {
+            clearTimeout(slideshowTimeout);
+            slideshowTimeout = setTimeout(showSlides, 4000);
+        }
         
         function showSlides() {
+            updateSlide(slideIndex + 1);
+            resetSlideshowTimer();
+        }
+        
+        function updateSlide(n) {
+            // Remove active class from all slides and dots
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
                 dots[i].classList.remove("active-dot");
             }
             
-            slideIndex++;
-            if (slideIndex >= slides.length) {
+            // Update slideIndex with wrapping
+            if (n >= slides.length) {
                 slideIndex = 0;
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;
+            } else {
+                slideIndex = n;
             }
             
+            // Set the active slide and dot
             slides[slideIndex].classList.add("active");
             dots[slideIndex].classList.add("active-dot");
-            
-            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+        
+        function nextSlide() {
+            updateSlide(slideIndex + 1);
+            resetSlideshowTimer();
+        }
+        
+        function prevSlide() {
+            updateSlide(slideIndex - 1);
+            resetSlideshowTimer();
         }
         
         function currentSlide(n) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-                dots[i].classList.remove("active-dot");
-            }
-            
-            slideIndex = n;
-            slides[slideIndex].classList.add("active");
-            dots[slideIndex].classList.add("active-dot");
+            updateSlide(n);
+            resetSlideshowTimer();
         }
         
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
         // Start slideshow automatically
-        setTimeout(showSlides, 4000);
+        resetSlideshowTimer();
     </script>
 </body>
 </html>
