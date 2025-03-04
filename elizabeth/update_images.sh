@@ -25,9 +25,11 @@ fi
 
 # Count the number of images first
 IMAGE_FILES=()
+
+# Use numerical sorting for images that start with numbers
 while IFS= read -r -d '' file; do
     IMAGE_FILES+=("$file")
-done < <(find "$IMAGES_DIR" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -print0 | sort -z)
+done < <(find "$IMAGES_DIR" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -print0 | sort -z -V)
 
 IMAGE_COUNT=${#IMAGE_FILES[@]}
 echo "Found $IMAGE_COUNT images"
@@ -39,6 +41,8 @@ DOTS_TEMP=$(mktemp)
 
 # Generate slideshow HTML
 echo '    <div class="slideshow-container">' > "$SLIDESHOW_TEMP"
+echo '        <div class="navigation-overlay prev-overlay" onclick="prevSlide()"></div>' >> "$SLIDESHOW_TEMP"
+echo '        <div class="navigation-overlay next-overlay" onclick="nextSlide()"></div>' >> "$SLIDESHOW_TEMP"
 
 for i in "${!IMAGE_FILES[@]}"; do
     img="${IMAGE_FILES[$i]}"
