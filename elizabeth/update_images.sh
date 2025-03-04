@@ -65,8 +65,22 @@ for i in "${!IMAGE_FILES[@]}"; do
         CLASS="slide"
     fi
     
-    # Add the image to the slideshow
-    echo "        <img class=\"$CLASS\" src=\"$img\" alt=\"Couple photo\" width=\"$WIDTH\" height=\"$HEIGHT\">" >> "$SLIDESHOW_TEMP"
+    # Extract caption from filename (after the underscore)
+    FILENAME=$(basename "$img")
+    CAPTION=""
+    if [[ $FILENAME =~ [0-9]+_(.+)\..+ ]]; then
+        CAPTION="${BASH_REMATCH[1]}"
+        # Replace underscores with spaces
+        CAPTION="${CAPTION//_/ }"
+    fi
+    
+    # Add the image and caption to the slideshow
+    echo "        <div class=\"slide-container\">" >> "$SLIDESHOW_TEMP"
+    echo "            <img class=\"$CLASS\" src=\"$img\" alt=\"Couple photo\" width=\"$WIDTH\" height=\"$HEIGHT\">" >> "$SLIDESHOW_TEMP"
+    if [ -n "$CAPTION" ]; then
+        echo "            <div class=\"caption\">$CAPTION</div>" >> "$SLIDESHOW_TEMP"
+    fi
+    echo "        </div>" >> "$SLIDESHOW_TEMP"
 done
 
 echo '    </div>' >> "$SLIDESHOW_TEMP"

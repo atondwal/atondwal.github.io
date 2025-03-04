@@ -156,19 +156,41 @@
             margin: 40px auto;
             height: 70vh;
             background-color: var(--accent-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             cursor: pointer;
         }
         
-        .slide {
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-container.active {
+            display: flex;
+        }
+        
+        .slide {
             max-width: 100%;
-            max-height: 100%;
+            max-height: calc(100% - 40px); /* Leave room for caption */
             width: auto;
             height: auto;
             object-fit: contain;
+        }
+        
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-style: italic;
+            z-index: 2;
         }
         
         .navigation-overlay {
@@ -318,25 +340,82 @@
     <div class="slideshow-container">
         <div class="navigation-overlay prev-overlay" onclick="prevSlide()"></div>
         <div class="navigation-overlay next-overlay" onclick="nextSlide()"></div>
-        <img class="slide active" src="photos/0_Virginia, 2020.jpg" alt="Couple photo" width="3276" height="3614">
-        <img class="slide" src="photos/1_Virginia, 2020.jpg" alt="Couple photo" width="4873" height="3283">
-        <img class="slide" src="photos/2_Brazil, 2024.jpg" alt="Couple photo" width="2362" height="3144">
-        <img class="slide" src="photos/2_San Diego, 20171.jpg" alt="Couple photo" width="4128" height="2322">
-        <img class="slide" src="photos/4_Virginia, 2020.jpg" alt="Couple photo" width="4804" height="3330">
-        <img class="slide" src="photos/5_Mt. Fuji, Japan, 2018.jpg" alt="Couple photo" width="3264" height="2448">
-        <img class="slide" src="photos/6_Tokyo, Japan 2018.jpg" alt="Couple photo" width="3264" height="2448">
-        <img class="slide" src="photos/7_Montreal, 2014.jpg" alt="Couple photo" width="3264" height="2448">
-        <img class="slide" src="photos/8_San Diego, 2021.jpg" alt="Couple photo" width="3024" height="3024">
-        <img class="slide" src="photos/9_Oakland, 2021.jpg" alt="Couple photo" width="4032" height="3024">
-        <img class="slide" src="photos/10_San Jose, 2023.jpg" alt="Couple photo" width="4032" height="3024">
-        <img class="slide" src="photos/10_Seattle, 2017.png" alt="Couple photo" width="1199" height="719">
-        <img class="slide" src="photos/11_Austin, 2021.jpg" alt="Couple photo" width="4032" height="3024">
-        <img class="slide" src="photos/12_Austin, 2021.jpg" alt="Couple photo" width="3264" height="2448">
-        <img class="slide" src="photos/13_Lake Tahoe, 2023.jpg" alt="Couple photo" width="3280" height="2464">
-        <img class="slide" src="photos/14_Lake Tahoe, 2023.jpg" alt="Couple photo" width="3280" height="2464">
-        <img class="slide" src="photos/15_Santa Cruz, 2023.jpg" alt="Couple photo" width="3280" height="2464">
-        <img class="slide" src="photos/16_Mexico, 2020.jpg" alt="Couple photo" width="3024" height="4032">
-        <img class="slide" src="photos/17_Virginia, 2020.jpg" alt="Couple photo" width="1536" height="1011">
+        <div class="slide-container active">
+            <img class="slide" src="photos/0_Virginia, 2020.jpg" alt="Couple photo" width="3276" height="3614">
+            <div class="caption">Virginia, 2020</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/1_Virginia, 2020.jpg" alt="Couple photo" width="4873" height="3283">
+            <div class="caption">Virginia, 2020</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/2_Brazil, 2024.jpg" alt="Couple photo" width="2362" height="3144">
+            <div class="caption">Brazil, 2024</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/2_San Diego, 20171.jpg" alt="Couple photo" width="4128" height="2322">
+            <div class="caption">San Diego, 2017</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/4_Virginia, 2020.jpg" alt="Couple photo" width="4804" height="3330">
+            <div class="caption">Virginia, 2020</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/5_Mt. Fuji, Japan, 2018.jpg" alt="Couple photo" width="3264" height="2448">
+            <div class="caption">Mt. Fuji, Japan, 2018</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/6_Tokyo, Japan 2018.jpg" alt="Couple photo" width="3264" height="2448">
+            <div class="caption">Tokyo, Japan 2018</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/7_Montreal, 2014.jpg" alt="Couple photo" width="3264" height="2448">
+            <div class="caption">Montreal, 2014</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/8_San Diego, 2021.jpg" alt="Couple photo" width="3024" height="3024">
+            <div class="caption">San Diego, 2021</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/9_Oakland, 2021.jpg" alt="Couple photo" width="4032" height="3024">
+            <div class="caption">Oakland, 2021</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/10_San Jose, 2023.jpg" alt="Couple photo" width="4032" height="3024">
+            <div class="caption">San Jose, 2023</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/10_Seattle, 2017.png" alt="Couple photo" width="1199" height="719">
+            <div class="caption">Seattle, 2017</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/11_Austin, 2021.jpg" alt="Couple photo" width="4032" height="3024">
+            <div class="caption">Austin, 2021</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/12_Austin, 2021.jpg" alt="Couple photo" width="3264" height="2448">
+            <div class="caption">Austin, 2021</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/13_Lake Tahoe, 2023.jpg" alt="Couple photo" width="3280" height="2464">
+            <div class="caption">Lake Tahoe, 2023</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/14_Lake Tahoe, 2023.jpg" alt="Couple photo" width="3280" height="2464">
+            <div class="caption">Lake Tahoe, 2023</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/15_Santa Cruz, 2023.jpg" alt="Couple photo" width="3280" height="2464">
+            <div class="caption">Santa Cruz, 2023</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/16_Mexico, 2020.jpg" alt="Couple photo" width="3024" height="4032">
+            <div class="caption">Mexico, 2020</div>
+        </div>
+        <div class="slide-container">
+            <img class="slide" src="photos/17_Virginia, 2020.jpg" alt="Couple photo" width="1536" height="1011">
+            <div class="caption">Virginia, 2020</div>
+        </div>
     </div>
         <!--SLIDESHOW_END-->
         
@@ -421,7 +500,7 @@
 
     <script>
         let slideIndex = 0;
-        const slides = document.getElementsByClassName("slide");
+        const slideContainers = document.getElementsByClassName("slide-container");
         const dots = document.getElementsByClassName("dot");
         let slideshowTimeout;
         
@@ -437,22 +516,22 @@
         
         function updateSlide(n) {
             // Remove active class from all slides and dots
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
+            for (let i = 0; i < slideContainers.length; i++) {
+                slideContainers[i].classList.remove("active");
                 dots[i].classList.remove("active-dot");
             }
             
             // Update slideIndex with wrapping
-            if (n >= slides.length) {
+            if (n >= slideContainers.length) {
                 slideIndex = 0;
             } else if (n < 0) {
-                slideIndex = slides.length - 1;
+                slideIndex = slideContainers.length - 1;
             } else {
                 slideIndex = n;
             }
             
             // Set the active slide and dot
-            slides[slideIndex].classList.add("active");
+            slideContainers[slideIndex].classList.add("active");
             dots[slideIndex].classList.add("active-dot");
         }
         
