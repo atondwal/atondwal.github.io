@@ -58,13 +58,6 @@ for i in "${!IMAGE_FILES[@]}"; do
         HEIGHT=400
     fi
     
-    # Set the first image as active
-    if [ $i -eq 0 ]; then
-        CLASS="slide active"
-    else
-        CLASS="slide"
-    fi
-    
     # Extract caption from filename (after the underscore)
     FILENAME=$(basename "$img")
     CAPTION=""
@@ -74,9 +67,16 @@ for i in "${!IMAGE_FILES[@]}"; do
         CAPTION="${CAPTION//_/ }"
     fi
     
+    # Set the first container as active
+    if [ $i -eq 0 ]; then
+        CONTAINER_CLASS="slide-container active"
+    else
+        CONTAINER_CLASS="slide-container"
+    fi
+    
     # Add the image and caption to the slideshow
-    echo "        <div class=\"slide-container\">" >> "$SLIDESHOW_TEMP"
-    echo "            <img class=\"$CLASS\" src=\"$img\" alt=\"Couple photo\" width=\"$WIDTH\" height=\"$HEIGHT\">" >> "$SLIDESHOW_TEMP"
+    echo "        <div class=\"$CONTAINER_CLASS\">" >> "$SLIDESHOW_TEMP"
+    echo "            <img class=\"slide\" src=\"$img\" alt=\"Couple photo\" width=\"$WIDTH\" height=\"$HEIGHT\">" >> "$SLIDESHOW_TEMP"
     if [ -n "$CAPTION" ]; then
         echo "            <div class=\"caption\">$CAPTION</div>" >> "$SLIDESHOW_TEMP"
     fi
