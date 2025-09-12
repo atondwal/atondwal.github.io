@@ -29,6 +29,38 @@
             scroll-behavior: smooth;
         }
         
+        .navigation-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background-color);
+            border-bottom: 1px solid var(--accent-color);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        
+        .nav-link {
+            color: var(--main-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+        
         .section-container {
             min-height: 100vh;
             display: flex;
@@ -40,7 +72,7 @@
         
         #section-title {
             justify-content: flex-start;
-            padding-top: 80px;
+            padding-top: 140px; /* Increased to account for fixed navigation */
         }
         
         .section-cut {
@@ -309,10 +341,28 @@
             .hotel-list {
                 grid-template-columns: 1fr;
             }
+            
+            .nav-container {
+                gap: 30px;
+            }
+            
+            .nav-link {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
+    <nav class="navigation-bar">
+        <div class="nav-container">
+            <a href="/" class="nav-link">Weekend Details</a>
+            <a href="https://withjoy.com/elizabeth-and-anish/rsvp" class="nav-link">RSVP</a>
+            <a href="#" class="nav-link">Registry</a>
+            <a href="visiting-monterey.html" class="nav-link">Visiting Monterey County</a>
+        </div>
+    </nav>
+    
     <!-- First section - just the title -->
     <div id="section-title" class="section-container">
         <header>
@@ -459,10 +509,21 @@
         <div class="section">
             <h2>Schedule</h2>
             <div class="event-details">
+                <h3>Welcome Party</h3>
+                <p class="event-date">Friday, December 12, 5:00-10:00pm</p>
+                <p class="event-location">Lauren's Lounge at the Holman Building<br>542 Lighthouse Ave<br>Pacific Grove, California 93950</p>
+                <p><strong>Dress:</strong> Informal</p>
+                <p>Taco bar, drinks, and finger food</p>
+            </div>
+            <div class="event-details" style="margin-top: 30px;">
                 <h3>Vow Renewal & Reception</h3>
                 <p class="event-date">Saturday, December 13, 4:00 pm</p>
-                <p class="event-location">Carmel Fields<br>4860 Carmel Valley Road<br>Carmel-by-the-Sea, California</p>
-                <p class="event-note"><em>Check back for more weekend details!</em></p>
+                <p class="event-location">Carmel Fields<br>4860 Carmel Valley Road<br>Carmel-by-the-Sea, California 93923</p>
+                <p><strong>Dress:</strong> Cocktail; Festive Indian attire encouraged</p>
+                <p>Cocktail hour, vow renewal, dinner, drinks, and dancing</p>
+            </div>
+            <div class="event-details" style="margin-top: 30px; padding: 15px 20px;">
+                <p class="event-note" style="font-size: 1.2rem; margin: 0;"><em>Check back for more weekend details!</em></p>
             </div>
         </div>
         
@@ -494,7 +555,7 @@
             </div>
         </div>
         <footer>
-            <p>We look forward to celebrating with you!</p>
+            <p style="font-size: 1.4rem;">We look forward to celebrating with you!</p>
         </footer>
     </div>
 
