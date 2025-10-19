@@ -60,7 +60,43 @@
         .nav-link:hover {
             opacity: 0.6;
         }
-        
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--background-color);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            border: 1px solid var(--accent-color);
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 10px;
+        }
+
+        .dropdown-content a {
+            color: var(--main-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .content-container {
             min-height: 100vh;
             display: flex;
@@ -98,7 +134,13 @@
         <div class="nav-container">
             <a href="/elizabeth" class="nav-link">Weekend Details</a>
             <a href="https://withjoy.com/elizabeth-and-anish/rsvp" class="nav-link">RSVP</a>
-            <a href="registry.html" class="nav-link">Registry</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link" onclick="return false;">Registry</a>
+                <div class="dropdown-content">
+                    <a href="https://www.amazon.com/wedding/registry/2V517CP7D2JFX" target="_blank">Amazon</a>
+                    <a href="https://withjoy.com/elizabeth-and-anish/registry" target="_blank">WithJoy</a>
+                </div>
+            </div>
             <a href="visiting-monterey.html" class="nav-link">Visiting Monterey County</a>
         </div>
     </nav>
