@@ -1,0 +1,427 @@
+<html>
+<head>
+<title>How to Become a Good Deep Learning Researcher</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="deep learning, mechanistic interpretability, alignment, students">
+<meta name="description" content="How to become a good deep learning researcher">
+<style type="text/css">
+body {
+    font-family: arial, helvetica, sans-serif;
+    color: #220000;
+    background-color: #ffeec8;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    color: #800080;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.title {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.comment {
+    color: #005000;
+    font-weight: normal;
+}
+
+.intro {
+    background-color: #fff3f0;
+    border-style: double;
+    border-color: #d1be88;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.listofsubjects {
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #eeffee;
+    border-style: dotted;
+    border-color: #008000;
+    padding: 15px;
+}
+
+.listitem {
+    margin: 20px 0;
+    background-color: #eff3ff;
+    border-style: dotted;
+    border-color: #4eaaab;
+    padding: 15px;
+}
+
+.sidelinks {
+    background-color: #ffeeff;
+    border-style: double;
+    border-color: #800080;
+    width: 280px;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 90%;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a:link, a:hover {
+    color: #000060;
+    text-decoration: underline;
+}
+
+a:visited, a:active {
+    color: #800080;
+    text-decoration: underline;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #e8e8e8;
+}
+</style>
+</head>
+<body>
+
+<p align="center" class="header">HOW to BECOME a <span class="title"><i>GOOD</i></span> DEEP LEARNING RESEARCHER</p>
+<p align="center"><i>With a focus on mechanistic interpretability and alignment</i></p>
+<p align="center">Inspired by <a href="https://webspace.science.uu.nl/~hooft101/theorist.html">Gerard 't Hooft's guide for theoretical physicists</a></p>
+
+<div class="intro">
+<p>This is a guide for those who are determined to understand deep learning deeply - not just to use it, but to understand <i>why</i> it works, to peer inside neural networks and understand their mechanisms, and to work on making AI systems safe and aligned with human values. If you really want to contribute to our understanding of deep learning systems - and it is an exciting experience if you succeed! - there are many things you need to know.</p>
+</p>
+
+</div>
+
+<div class="intro">
+<p>You don't have to believe anything you read on faith - check it. Try alternative approaches, as many as you can. Implement things yourself. You will discover, occasionally, that those who came before often did the smartest thing possible. Amazing. Try to outsmart the authors.</p>
+
+<p>The best resources come with exercises. Do them. Better yet, invent your own exercises. Implement papers from scratch. Try to reach the stage that you discover errors in papers, and imagine how you would do it better.</p>
+
+<p>Don't expect this to be quick. You won't get your breakthrough for free, and remember, all of this together takes dedicated students at least 2-3 years of intense study. More than rudimentary intelligence is assumed to be present, because ordinary students can master this material only when assisted by patient teachers.</p>
+</div>
+
+<div class="intro">
+<p>Deep learning is like a skyscraper. It has solid foundations in mathematics, classical machine learning, and fundamental deep learning concepts. Don't think that classical ML is "irrelevant" since now we have transformers. In those days, the solid foundations were laid of the knowledge that we enjoy now. Don't try to construct your skyscraper without first reconstructing these foundations yourself.</p>
+
+<p>We favor the physicist's approach: not pure theorem-proof rigor, not cookbook "plug and chug", but <b>derivation → intuition → application</b>. Understand <i>why</i> the math works. Derive things yourself. Feel it in your bones.</p>
+</div>
+
+<div class="intro">
+<p>The choice of topics and the amount of ink spilled on them represent my obvious biases. Take heed. YMMV.</p>
+</div>
+<a name="list"></a>
+<div class="listofsubjects">
+<b>LIST OF SUBJECTS, IN LOGICAL ORDER</b>
+<p>(Not everything has to be done in this order, but this approximately indicates the logical coherence of the various subjects.)</p>
+
+<ul>
+    <li><a href="#layer0">Layer 0: Engineering Prerequisites</a></li>
+    <li><a href="#layer1">Layer 1: Mathematics</a></li>
+    <li><a href="#layer2">Layer 2: Classical Machine Learning</a></li>
+    <li><a href="#layer3">Layer 3: Deep Learning Fundamentals</a></li>
+    <li><a href="#infra">Infrastructure & Compute</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#layer4">Layer 4: Sequences and Transformers</a></li>
+    <li><a href="#layer5">Layer 5: Reinforcement Learning</a></li>
+    <li><a href="#other">Other Domains</a> (Speech, Robotics, Multimodal, Biology)</li>
+    <li><a href="#phenomenology">Phenomenology</a> (The Craft of Training)</li>
+    <li><a href="#layer6">Layer 6: Deep Learning Theory</a></li>
+    <li><a href="#emergence">Emergent Phenomena</a> (Scaling, ICL, Emergence)</li>
+    <li><a href="#formal">Formal Methods & Math-AI</a></li>
+    <li><a href="#layer7">Layer 7: Mechanistic Interpretability</a></li>
+    <li><a href="#layer8">Layer 8: Alignment</a></li>
+</ul>
+</div>
+
+<!-- LAYER 0 -->
+<a name="layer0"></a>
+<div class="listitem">
+<span class="title">Layer 0: Engineering Prerequisites</span>
+
+<p>Before you can do anything, you need to be able to code. This is not core to the theory, but you cannot do experiments without it.</p>
+
+<div class="sidelinks">
+<b>DS&A / Algorithmic Thinking:</b><br>
+<a href="https://neetcode.io/roadmap">Neetcode 150</a>,
+<a href="https://leetcode.com/">LeetCode</a><br><br>
+
+<b>Practical Tooling:</b><br>
+<a href="https://missing.csail.mit.edu/">MIT Missing Semester</a>
+</div>
+
+<ul>
+    <li><b>Data Structures & Algorithms:</b> Big-O (why is attention O(n²)?), graphs, hashmaps, DP.</li>
+    <li><b>Practical Tooling:</b> Shell, git, debugging, profiling. <code>git bisect</code> can save you weeks.</li>
+</ul>
+
+<p><b>Framework fluency</b> (PyTorch, JAX, Einops) comes from use. These help you get started:
+<a href="https://github.com/phlippe/uvadlc_notebooks/blob/master/docs/tutorial_notebooks/tutorial2/Introduction_to_PyTorch.ipynb">UvA PyTorch</a>,
+<a href="https://docs.jax.dev/en/latest/autodidax.html">JAX autodidax</a>,
+<a href="https://github.com/arogozhnikov/einops/tree/main/docs">Einops</a>.
+But you'll really learn by implementing the later layers.</p>
+
+<p><b>Before moving on:</b> you can use git to clone, branch, and resolve a merge conflict; you understand Big-O; you can run and modify tutorials. You can come back for the rest as you need it.</p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- LAYER 1 -->
+<a name="layer1"></a>
+<div class="listitem">
+<span class="title">Layer 1: Mathematics</span>
+
+<p>The mathematical foundations. We favor resources with exercises and the physicist's approach - derivations that build intuition, not just proofs or cookbooks.</p>
+
+<div class="sidelinks">
+<b>Lecture Notes & Courses:</b><br>
+<a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/">MIT 18.06</a> - Linear Algebra (Strang)<br>
+<a href="https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/">MIT 18.02</a> - Multivariable Calculus<br>
+<a href="https://projects.iq.harvard.edu/stat110">Harvard Stat 110</a> - Probability (Blitzstein)<br>
+<a href="https://ocw.mit.edu/courses/6-441-information-theory-spring-2016/pages/lecture-notes/">MIT 6.441</a> - Information Theory<br>
+<a href="https://web.stanford.edu/class/ee364a/lectures.html">Stanford EE364a</a> - Convex Optimization (Boyd)<br><br>
+
+<b>Intuition (no exercises):</b><br>
+<a href="https://www.3blue1brown.com/topics/linear-algebra">3B1B Linear Algebra</a>,
+<a href="https://www.3blue1brown.com/topics/calculus">Calculus</a><br><br>
+
+<b>Textbooks for deeper reading:</b><br>
+<a href="http://www.inference.org.uk/mackay/itila/">MacKay</a> - Info theory + ML<br>
+<a href="https://web.stanford.edu/~boyd/cvxbook/">Boyd & Vandenberghe</a> - Optimization<br>
+<a href="https://bayes.wustl.edu/etj/prob/book.pdf">Jaynes</a> - Probability (the deep "why")<br>
+<a href="https://mml-book.github.io/">MML</a> - Ties math to ML
+</div>
+
+<table>
+<tr><th>Topic</th><th>Notes</th></tr>
+<tr><td>Linear Algebra</td><td>Matrix multiply, eigendecomposition, SVD, rank, null spaces. Geometric intuition is critical.</td></tr>
+<tr><td>Multivariable Calculus</td><td>Gradients, Jacobians, Hessians, chain rule in high dimensions.</td></tr>
+<tr><td>Probability & Statistics</td><td>Blitzstein for solid foundations with great problem sets. Jaynes for the deep "why".</td></tr>
+<tr><td>Information Theory</td><td>Entropy, KL divergence, mutual information.</td></tr>
+<tr><td>Optimization</td><td>Convexity, gradient descent, convergence.</td></tr>
+<tr><td>General ML Math</td><td>Deisenroth's MML ties it together.</td></tr>
+</table>
+
+<p><b>Before moving on:</b> differentiate a composition of vector functions (it's just chain rule), explain what SVD does geometrically, apply Bayes' theorem.</p>
+
+<p><b>You'll want to come back for:</b> information theory (when you hit KL divergence in loss functions), convex optimization (when training feels like magic), Jaynes (when you want the deep "why" of probability).</p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- LAYER 2a -->
+<a name="layer2"></a>
+<div class="listitem">
+<span class="title">Layer 2: Classical Machine Learning</span>
+
+<p>This is your Newtonian mechanics. Understand what came before and why.</p>
+
+<div class="sidelinks">
+<b>Lecture Notes & Courses:</b><br>
+<a href="https://cs229.stanford.edu/">Stanford CS229</a> - ML fundamentals (Ng)<br><br>
+
+<b>Textbooks for deeper reading:</b><br>
+<a href="https://probml.github.io/pml-book/book1.html">Murphy PML</a> - Probabilistic/Bayesian view<br>
+<a href="https://hastie.su.domains/ElemStatLearn/">ESL</a> - Statistical depth
+</div>
+
+<table>
+<tr><th>Topic</th><th>Notes</th></tr>
+<tr><td>Linear models</td><td>Regression, logistic regression. Derive the gradients by hand.</td></tr>
+<tr><td>SVMs & kernels</td><td>Margins, dual formulation, kernel trick. This intuition comes back.</td></tr>
+<tr><td>Probabilistic models, EM</td><td>Graphical models, latent variables, EM derivation.</td></tr>
+<tr><td>Ensembles, boosting</td><td>Bias-variance decomposition, random forests, AdaBoost.</td></tr>
+<tr><td>Dimensionality reduction</td><td>PCA derivation, probabilistic PCA. Will matter for representations.</td></tr>
+</table>
+
+<p><b>Before moving on:</b> derive logistic regression gradient, explain bias-variance tradeoff, implement a decision tree from scratch.</p>
+
+<p>You'll end up coming back to this section when someone references a classic technique you don't understand.</p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- LAYER 2b -->
+<a name="layer3"></a>
+<div class="listitem">
+<span class="title">Layer 3: Deep Learning Fundamentals</span>
+
+<p>The core of deep learning. You must be able to derive backprop through any operation by hand. You must understand <i>why</i> architectures are shaped the way they are.</p>
+
+<div class="sidelinks">
+<b>Build from Scratch:</b><br>
+<a href="https://github.com/karpathy/micrograd">Karpathy - micrograd</a><br>
+<a href="https://github.com/karpathy/makemore">Karpathy - makemore</a><br>
+<a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">Neural Networks: Zero to Hero</a><br><br>
+
+<b>Textbook:</b><br>
+<a href="https://www.deeplearningbook.org/">Goodfellow, Bengio, Courville - Deep Learning</a><br><br>
+
+<b>Backprop Deep Dive:</b><br>
+<a href="https://cs231n.github.io/optimization-2/">CS231n Backprop Notes</a> - Excellent treatment of backprop mechanics<br><br>
+
+<b>Optimization:</b><br>
+<a href="https://ruder.io/optimizing-gradient-descent/">Ruder - Overview of Gradient Descent Optimization</a><br><br>
+
+<b>Papers to Implement:</b><br>
+BatchNorm, LayerNorm, ResNet papers<br><br>
+
+<b>Intuition (no exercises):</b><br>
+<a href="https://www.3blue1brown.com/topics/neural-networks">3B1B Neural Networks</a>
+</div>
+
+<p>This layer breaks into five essential sub-topics:</p>
+
+<h4>3-i: Backprop & Autodiff</h4>
+<p>Non-negotiable. You must be able to derive backprop through any operation by hand.</p>
+<ul>
+    <li>Build micrograd - implement autograd in ~100 lines</li>
+    <li>Understand computational graphs, what .backward() actually does</li>
+    <li>Work through backprop on paper for: softmax, cross-entropy, batch norm, attention</li>
+    <li>Read the CS231n backprop notes carefully</li>
+</ul>
+
+<h4>3-ii: Architectures</h4>
+<p>Why these structures work</p>
+<ul>
+    <li><b>MLPs:</b> Universal approximation theorem - what does it actually say? What are the limits?</li>
+    <li><b>Depth vs width:</b> Why do we prefer deep over wide? What can deep nets represent that shallow ones can't?</li>
+    <li>Build makemore - understand embeddings, lead into transformers</li>
+</ul>
+
+<h4>3-iii: Optimization Dynamics</h4>
+<ul>
+    <li><b>SGD:</b> Why noise helps (implicit regularization, escaping saddle points)</li>
+    <li><b>Momentum, Adam:</b> Derive them. Understand as approximating second-order information.</li>
+    <li><b>Loss landscapes:</b> The geometry of neural net optimization. Why aren't local minima as bad as we feared?</li>
+    <li><b>Learning rates:</b> Warmup, schedules. Not just "use cosine" but why.</li>
+</ul>
+
+<h4>3-iv: Generalization & Regularization</h4>
+<ul>
+    <li><b>Classical view:</b> Bias-variance tradeoff, overfitting, underfitting</li>
+    <li><b>Modern puzzle:</b> Why do overparameterized nets generalize? Double descent.</li>
+    <li><b>Regularization techniques:</b> Dropout (derive it as approximate Bayesian inference), weight decay, data augmentation</li>
+</ul>
+
+<h4>3-v: Training Dynamics</h4>
+<ul>
+    <li><b>Initialization:</b> Xavier/He - derive why these scalings are necessary</li>
+    <li><b>Normalization:</b> BatchNorm, LayerNorm - what problem do they solve? Derive the backward pass.</li>
+    <li><b>Residual connections:</b> Why do they help? Gradient flow perspective, ensemble interpretation.</li>
+</ul>
+
+<p><b>The cardinal sin this prevents:</b> People who can <code>import transformers</code> but can't explain why LayerNorm is where it is, or what the backward pass through softmax looks like.</p>
+
+<p><b>Before moving on:</b> derive backprop through softmax and batch norm on paper, implement micrograd, explain why ResNets train better than plain deep nets.</p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- INFRASTRUCTURE -->
+<a name="infra"></a>
+<div class="listitem">
+<span class="title">Infrastructure & Compute</span>
+
+<p>Needed to run experiments at scale. Not required.</p>
+
+<div class="sidelinks">
+<b>GPU Programming:</b><br>
+<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/">CUDA C Programming Guide</a><br>
+<a href="https://developer.nvidia.com/blog/even-easier-introduction-cuda/">NVIDIA CUDA Intro</a><br><br>
+
+<b>Profiling & Debugging:</b><br>
+<a href="https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html">PyTorch Profiler</a><br>
+NVIDIA Nsight
+</div>
+
+<ul>
+    <li><b>GPU programming basics:</b> Understanding CUDA, kernels, memory hierarchy. You don't need to write CUDA kernels daily, but understanding what's happening under the hood helps you debug performance issues.</li>
+    <li><b>Cluster usage:</b> SLURM, job scheduling, multi-node training. How to not be the person who hogs the cluster.</li>
+    <li><b>Distributed training:</b> Data parallelism, model parallelism, pipeline parallelism. When do you need each?</li>
+    <li><b>Profiling:</b> Finding bottlenecks. Is it compute-bound or memory-bound? How to read profiler output.</li>
+    <li><b>Debugging at scale:</b> When your training run dies at hour 47, how do you figure out why?</li>
+    <li><b>Mixed precision:</b> FP16, BF16, when and why to use them.</li>
+</ul>
+
+<p><i>TODO: This section is a WIP</i></p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- LAYER 3a -->
+<a name="vision"></a>
+<div class="listitem">
+<span class="title">Vision</span>
+
+<p>CNNs and computer vision. Even if your focus is language models, the concepts here (translation equivariance, hierarchical features, weight sharing) are fundamental.</p>
+
+<div class="sidelinks">
+<b>Primary:</b><br>
+<a href="http://cs231n.stanford.edu/">CS231n (Stanford)</a><br>
+<a href="https://cs231n.github.io/">CS231n Course Notes</a> - Excellent written materials<br><br>
+
+<b>Key Notes:</b><br>
+<a href="https://cs231n.github.io/convolutional-networks/">Convolutional Networks</a><br>
+<a href="https://cs231n.github.io/understanding-cnn/">Visualizing CNNs</a>
+</div>
+
+<ul>
+    <li><b>Convolutions:</b> Derive backprop through a conv layer by hand. Understand as weight sharing.</li>
+    <li><b>Translation equivariance:</b> Why convolutions give you this for free. What other equivariances might you want?</li>
+    <li><b>Hierarchical features:</b> Edges → textures → parts → objects. Receptive fields.</li>
+    <li><b>Pooling, striding:</b> What they do to translation equivariance. Tradeoffs.</li>
+    <li><b>Classic architectures:</b> LeNet, AlexNet, VGG, ResNet - understand the progression of ideas</li>
+    <li><b>Visualizations:</b> What do intermediate layers see? Activation maximization, feature visualization.</li>
+</ul>
+
+<p><i>TODO: Expand with more resources. Maybe deprioritize.</i></p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<!-- LAYER 3b -->
+<a name="layer4"></a>
+<div class="listitem">
+<span class="title">Layer 4: Sequences and Transformers</span>
+
+<p>Attention mechanisms and the transformer architecture.</p>
+
+<div class="sidelinks">
+<b>Build from Scratch:</b><br>
+<a href="https://github.com/karpathy/nanoGPT">Karpathy - nanoGPT</a><br><br>
+
+<b>Essential Reading:</b><br>
+<a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a><br><br>
+
+<!-- More resources to be added -->
+</div>
+
+RNNs, LSTMs, vanishing gradients, why gating helps; Attention; Positional encodings; Transformer architecture: encoder-decoder, decoder-only. LayerNorm placement. Build GPT from scratch (nanoGPT).
+
+<p><i>TODO: Expand this section</i></p>
+
+<p><a href="#list">Return to List</a></p>
+</div>
+
+<hr>
+<p><i>This guide is a work in progress.</i></p>
+
+</body>
+</html>
