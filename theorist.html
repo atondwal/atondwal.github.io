@@ -107,7 +107,7 @@ th {
 
 <p>I have tried to include sufficient resources with exercises. Do them. Invent your own exercises. Implement papers from scratch.</p>
 
-<p>Don't expect this to be quick. All of this together takes dedicated students at least 2-3 years of intense study.</p>
+<p>Don't expect this to be quick. All of this together takes dedicated students at least 2-3 years of intense study. Each topic in this list has quite a bit of depth. I have tried to point to, where I can, the minimum requirements for the next layer, but you will frequently find that you need to return to previous layers to learn it more throughly.</p>
 </div>
 
 
@@ -202,6 +202,7 @@ But you'll really learn by implementing the later layers.</p>
 
 <p><b>Minimuim before moving on:</b> differentiate a composition of vector functions (it's just chain rule), explain what SVD does geometrically, apply Bayes' theorem.</p>
 
+<p><b>You'll want to come back for:</b> information theory (when you hit KL divergence in loss functions), convex optimization</p>
 <p><a href="#list">Return to List</a></p>
 </div>
 
@@ -210,15 +211,20 @@ But you'll really learn by implementing the later layers.</p>
 <div class="listitem">
 <span class="title">Layer 2: Classical Machine Learning</span>
 
-<p>This is your Newtonian mechanics. Understand what came before and why.</p>
+<p>Understand what came before and why.</p>
 
 <div class="sidelinks">
 <b>Lecture Notes & Courses:</b><br>
 <a href="https://cs229.stanford.edu/">Stanford CS229</a> - ML fundamentals (Ng)<br><br>
 
+<b>Generalization:</b><br>
+<a href="https://mlu-explain.github.io/double-descent/">MLU-Explain Double Descent</a><br>
+<a href="https://x.com/daniela_witten/status/1292293102103748609">Daniela Witten thread</a> - double descent via bias-variance
+<br/><br/>
+
 <b>Textbooks for deeper reading:</b><br>
 <a href="https://probml.github.io/pml-book/book1.html">Murphy PML</a> - Probabilistic/Bayesian view<br>
-<a href="https://hastie.su.domains/ElemStatLearn/">ESL</a> - Statistical depth
+<a href="https://hastie.su.domains/ElemStatLearn/">ESL</a> - Statistical depth<br><br>
 </div>
 
 <table>
@@ -226,8 +232,9 @@ But you'll really learn by implementing the later layers.</p>
 <tr><td>Linear models</td><td>Regression, logistic regression. Derive the gradients by hand.</td></tr>
 <tr><td>SVMs & kernels</td><td>Margins, dual formulation, kernel trick. This intuition comes back.</td></tr>
 <tr><td>Probabilistic models, EM</td><td>Graphical models, latent variables, EM derivation.</td></tr>
-<tr><td>Ensembles, boosting</td><td>Bias-variance decomposition, random forests, AdaBoost.</td></tr>
+<tr><td>Ensembles, boosting</td><td>Random forests, AdaBoost.</td></tr>
 <tr><td>Dimensionality reduction</td><td>PCA derivation, probabilistic PCA. Will matter for representations.</td></tr>
+<tr><td>Generalization</td><td>Bias-variance tradeoff. Double descent: why do interpolating models generalize?</td></tr>
 </table>
 
 <p><b>Before moving on:</b> derive logistic regression gradient, explain bias-variance tradeoff, implement a decision tree from scratch.</p>
@@ -246,9 +253,7 @@ But you'll really learn by implementing the later layers.</p>
 
 <div class="sidelinks">
 <b>Build from Scratch:</b><br>
-<a href="https://github.com/karpathy/micrograd">Karpathy - micrograd</a><br>
-<a href="https://github.com/karpathy/makemore">Karpathy - makemore</a><br>
-<a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">Neural Networks: Zero to Hero</a><br><br>
+<a href="https://github.com/karpathy/micrograd">Karpathy - micrograd</a><br><br>
 
 <b>Lecture Notes & Courses:</b><br>
 <a href="https://cs231n.github.io/optimization-2/">CS231n Backprop Notes</a><br>
@@ -257,9 +262,7 @@ But you'll really learn by implementing the later layers.</p>
 <a href="https://people.csail.mit.edu/moitra/408c.html">MIT 18.408</a> - double descent, generalization theory<br><br>
 
 <b>Intuition:</b><br>
-<a href="https://www.3blue1brown.com/topics/neural-networks">3B1B Neural Networks</a><br>
-<a href="https://mlu-explain.github.io/double-descent/">MLU-Explain Double Descent</a> - visual guide<br>
-<a href="https://x.com/daniela_witten/status/1292293102103748609">Daniela Witten thread on double descent via bias-variance</a> <br><br>
+<a href="https://www.3blue1brown.com/topics/neural-networks">3B1B Neural Networks</a><br><br>
 
 <b>Papers to Implement:</b><br>
 BatchNorm, LayerNorm, ResNet<br><br>
@@ -271,11 +274,10 @@ BatchNorm, LayerNorm, ResNet<br><br>
 <p>This layer breaks into five essential sub-topics:</p>
 
 <h4>3-i: Backprop & Autodiff</h4>
-<p>Non-negotiable. You must be able to derive backprop through any operation by hand.</p>
 <ul>
     <li>Build micrograd - implement autograd in ~100 lines</li>
     <li>Understand computational graphs, what .backward() actually does</li>
-    <li>Work through backprop on paper for: softmax, cross-entropy, batch norm, attention</li>
+    <li>Work through backprop on paper for: softmax, cross-entropy, batch norm</li>
     <li>Read the CS231n backprop notes carefully</li>
 </ul>
 
@@ -284,7 +286,6 @@ BatchNorm, LayerNorm, ResNet<br><br>
 <ul>
     <li><b>MLPs:</b> Universal approximation theorem - what does it actually say? What are the limits?</li>
     <li><b>Depth vs width:</b> Why do we prefer deep over wide? What can deep nets represent that shallow ones can't?</li>
-    <li>Build makemore - understand embeddings, lead into transformers</li>
 </ul>
 
 <h4>3-iii: Optimization Dynamics</h4>
@@ -295,21 +296,13 @@ BatchNorm, LayerNorm, ResNet<br><br>
     <li><b>Learning rates:</b> Warmup, schedules. Not just "use cosine" but why.</li>
 </ul>
 
-<h4>3-iv: Generalization & Regularization</h4>
-<ul>
-    <li><b>Classical view:</b> Bias-variance tradeoff, overfitting, underfitting</li>
-    <li><b>Modern puzzle:</b> Why do overparameterized nets generalize? Double descent.</li>
-    <li><b>Regularization techniques:</b> Dropout (derive it as approximate Bayesian inference), weight decay, data augmentation</li>
-</ul>
-
-<h4>3-v: Training Dynamics</h4>
+<h4>3-iv: Training Deep Networks</h4>
 <ul>
     <li><b>Initialization:</b> Xavier/He - derive why these scalings are necessary</li>
     <li><b>Normalization:</b> BatchNorm, LayerNorm - what problem do they solve? Derive the backward pass.</li>
-    <li><b>Residual connections:</b> Why do they help? Gradient flow perspective, ensemble interpretation.</li>
+    <li><b>Residual connections:</b> Why do they help? Gradient flow perspective.</li>
+    <li><b>Dropout:</b> Derive it as approximate Bayesian inference.</li>
 </ul>
-
-<p><b>The cardinal sin this prevents:</b> People who can <code>import transformers</code> but can't explain why LayerNorm is where it is, or what the backward pass through softmax looks like.</p>
 
 <p><b>Before moving on:</b> derive backprop through softmax and batch norm on paper, implement micrograd, explain why ResNets train better than plain deep nets.</p>
 
@@ -378,16 +371,18 @@ NVIDIA Nsight
 <p><a href="#list">Return to List</a></p>
 </div>
 
-<!-- LAYER 3b -->
+<!-- LAYER 4 -->
 <a name="layer4"></a>
 <div class="listitem">
-<span class="title">Layer 4: Sequences and Transformers</span>
+<span class="title">Layer 4: Language Models & Transformers</span>
 
-<p>Attention mechanisms and the transformer architecture. For mechanistic interpretability, this is where you'll spend most of your time.</p>
+<p>From word vectors to GPT. For mechanistic interpretability, this is where you'll spend most of your time.</p>
 
 <div class="sidelinks">
 <b>Build from Scratch:</b><br>
-<a href="https://github.com/karpathy/nanoGPT">Karpathy - nanoGPT</a><br><br>
+<a href="https://github.com/karpathy/makemore">Karpathy - makemore</a> - embeddings, bigrams<br>
+<a href="https://github.com/karpathy/nanoGPT">Karpathy - nanoGPT</a><br>
+<a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">Neural Networks: Zero to Hero</a><br><br>
 
 <b>Essential Reading:</b><br>
 <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a><br><br>
