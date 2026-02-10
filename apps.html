@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apps — Anish Tondwalkar</title>
+  <style>
+  /* Fonts */ @font-face { font-family: "nyt-cheltenham"; font-style: normal; font-weight: 200; src: local("☺︎"), url("fonts/nyt-cheltenham-200-normal.woff") format("woff"); }
+  /* Layout */ html { background-image: url("http://68.media.tumblr.com/25e544efd4fd8795cd560d55b740cbd7/tumblr_nagjnmP9Rg1qcax2io1_1280.jpg"); background-size: 100%; background-attachment: fixed; } body { max-width: 33rem; margin: 50px auto 50px auto; background: rgba(255,255,255,0.95); padding: 6em; text-align: justify; }
+  /* Typography */ body { font: 1rem/1.6rem Georgia,serif; text-rendering: optimizeLegibility; } h1 { font: 40px/44px nyt-cheltenham; font-weight: 200; margin-bottom: 0; } h2 { font-weight: normal; }
+  /* Colors */ a { text-decoration: none; color: #325E6E; } a:hover { color: green; border-bottom: 1px solid green; } ::selection {color:#fff;background:#42535B;} ::-moz-selection {color:#fff;background:#638D77;} a::selection {color: #A5E0D2;}
+  /* Scaling */ @media all {html {font-size: 16px;}} @media all and (max-width:760px){html {font-size: 15px;}} @media all and (max-width:720px){html {font-size: 14px;}} @media all and (max-width:680px){html {font-size: 13px;}} @media all and (max-width:640px){html {font-size: 12px;}} @media all and (max-width:600px){html {font-size: 11px;}} @media all and (max-width:560px){html {font-size: 10px;}} @media all and (max-width:520px){html {font-size: 9px;}}
+
+  /* Gallery */
+  .intro { margin-bottom: 2em; }
+  .app-card { border-top: 1px solid #ddd; padding: 1.5em 0; }
+  .app-card:last-of-type { border-bottom: 1px solid #ddd; }
+  .app-name { font: 24px/28px nyt-cheltenham; font-weight: 200; margin: 0 0 0.3em 0; }
+  .app-tag { display: inline-block; font-size: 0.75rem; color: #50897B; border: 1px solid #50897B; border-radius: 3px; padding: 0.1em 0.5em; margin-left: 0.5em; vertical-align: middle; }
+  .app-desc { margin: 0.5em 0; }
+  .app-features { margin: 0.5em 0; padding-left: 1.2em; color: #555; font-size: 0.9rem; }
+  .app-features li { margin-bottom: 0.2em; }
+  .app-links { margin-top: 0.8em; font-size: 0.9rem; }
+  .app-links a { margin-right: 1em; }
+  </style>
+</head>
+<body>
+<h1>Apps</h1>
+<p class="intro">Android apps, vibecoded in Termux with Claude Code.</p>
+
+<div class="app-card">
+  <h2 class="app-name">Finger Paint <span class="app-tag">Java</span></h2>
+  <p class="app-desc">A drawing app with a tree-based undo/redo system. Branch your canvas history and navigate between alternate timelines of your painting.</p>
+  <ul class="app-features">
+    <li>Freehand drawing with adjustable brush sizes and 12-color palette</li>
+    <li>Multi-branch undo/redo with tree visualization</li>
+    <li>Multi-touch pan and zoom</li>
+    <li>Save and load paintings as JSON</li>
+  </ul>
+  <div class="app-links">
+    <a href="https://github.com/atondwal/FingerPaint">GitHub</a>
+    <a href="/apks/FingerPaint.apk">Download APK</a>
+  </div>
+</div>
+
+<div class="app-card">
+  <h2 class="app-name">Pie Control <span class="app-tag">Java</span></h2>
+  <p class="app-desc">A gesture-activated pie menu overlay for quick app launching. Organize apps into radial layers and nested folders for one-handed access.</p>
+  <ul class="app-features">
+    <li>Floating radial pie menu with system overlay</li>
+    <li>Multi-level menu with nested folders</li>
+    <li>Auto-start on boot</li>
+    <li>Persistent configuration with Room database</li>
+  </ul>
+  <div class="app-links">
+    <a href="https://github.com/atondwal/PieControl">GitHub</a>
+    <a href="/apks/PieControl.apk">Download APK</a>
+  </div>
+</div>
+
+<div class="app-card">
+  <h2 class="app-name">Niagara Home <span class="app-tag">Kotlin</span></h2>
+  <p class="app-desc">A custom Android launcher with a vertical scrolling app list and alphabet strip for quick navigation. Adapts its layout for foldable devices.</p>
+  <ul class="app-features">
+    <li>Alphabetical app list with sidebar letter strip</li>
+    <li>Live search and filtering</li>
+    <li>Foldable device support with adaptive grid/list layout</li>
+    <li>Pull-down gesture for notification shade</li>
+  </ul>
+  <div class="app-links">
+    <a href="/apks/NiagaraHome.apk">Download APK</a>
+  </div>
+</div>
+
+<div class="app-card">
+  <h2 class="app-name">Allergen Buddy <span class="app-tag">Kotlin</span> <span class="app-tag">Compose</span></h2>
+  <p class="app-desc">Scan product barcodes or ingredient labels with your camera to check for allergens. Matches against a configurable list of personal sensitivities.</p>
+  <ul class="app-features">
+    <li>Barcode scanning and OCR text recognition</li>
+    <li>Open Food Facts API integration</li>
+    <li>Configurable allergen/sensitivity profiles</li>
+    <li>Backup and restore sensitivity data</li>
+  </ul>
+  <div class="app-links">
+    <a href="/apks/AllergenBuddy.apk">Download APK</a>
+  </div>
+</div>
+
+<hr />
+<footer>
+<a href="/">home</a> | <a href="/biblio.html">papers</a> | <a href="//blog.ani.sh">blog</a>
+</footer>
+</body>
+</html>
