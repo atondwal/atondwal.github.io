@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dialogues — Anish Tondwalkar</title>
+  <style>
+  /* Fonts */ @font-face { font-family: "nyt-cheltenham"; font-style: normal; font-weight: 200; src: local("☺︎"), url("fonts/nyt-cheltenham-200-normal.woff") format("woff"); }
+  /* Layout */ html { background-image: url("http://68.media.tumblr.com/25e544efd4fd8795cd560d55b740cbd7/tumblr_nagjnmP9Rg1qcax2io1_1280.jpg"); background-size: 100%; background-attachment: fixed; } body { max-width: 33rem; margin: 50px auto 50px auto; background: rgba(255,255,255,0.95); padding: 6em; text-align: justify; }
+  /* Typography */ body { font: 1rem/1.6rem Georgia,serif; text-rendering: optimizeLegibility; } h1 { font: 40px/44px nyt-cheltenham; font-weight: 200; margin-bottom: 0; } h2 { font-weight: normal; } h3 { font: 24px/28px nyt-cheltenham; font-weight: 200; margin-bottom: 0.3em; }
+  /* Colors */ a { text-decoration: none; color: #325E6E; } a:hover { color: green; border-bottom: 1px solid green; } ::selection {color:#fff;background:#42535B;} ::-moz-selection {color:#fff;background:#638D77;} a::selection {color: #A5E0D2;}
+  /* Scaling */ @media all {html {font-size: 16px;}} @media all and (max-width:760px){html {font-size: 15px;}} @media all and (max-width:720px){html {font-size: 14px;}} @media all and (max-width:680px){html {font-size: 13px;}} @media all and (max-width:640px){html {font-size: 12px;}} @media all and (max-width:600px){html {font-size: 11px;}} @media all and (max-width:560px){html {font-size: 10px;}} @media all and (max-width:520px){html {font-size: 9px;}}
+
+  /* Dialogues */
+  .intro { margin-bottom: 2em; }
+  .dialogue { border-top: 1px solid #ddd; padding: 1.5em 0; }
+  .dialogue:last-of-type { border-bottom: 1px solid #ddd; }
+  .dialogue-date { font-size: 0.85rem; color: #888; margin-bottom: 0.2em; }
+  .dialogue p { margin: 0.8em 0; }
+  .dialogue .formula { text-align: center; margin: 1.2em 0; font-style: italic; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+<h1>Dialogues</h1>
+<p class="intro">Conversations with Claude, lightly edited.</p>
+
+<div class="dialogue">
+  <p class="dialogue-date">April 2026</p>
+  <h3>Induced Demand and Supply</h3>
+  <p>Building more housing makes cities cheaper. Building more roads does not reduce congestion.</p>
+  <p>We model the net price effect of adding supply to a congested system as:</p>
+  <p class="formula">$$\frac{dp}{p} = \bigl[-\varepsilon + \lambda(1 - e^{-t/\tau})\bigr] \cdot \sigma$$</p>
+  <p>Three regimes emerge:</p>
+  <ul class="app-features">
+    <li><b>Supply wins</b> ($\varepsilon > \lambda$): any constant building rate permanently reduces prices.</li>
+    <li><b>Treadmill</b> ($\varepsilon < \lambda$): the building rate must accelerate exponentially at $\gamma > (\lambda - \varepsilon)/(\varepsilon \cdot \tau)$ to stay ahead &mdash; eventually unsustainable.</li>
+    <li><b>Break-even</b> ($\varepsilon \approx \lambda$): supply additions have no long-run effect.</li>
+  </ul>
+  <p><b>Housing sits narrowly in the supply-wins regime.</b> The Bettencourt-West urban scaling laws show per capita income scaling as $N^\beta$ with $\beta \approx 1.15$, implying an induced demand elasticity of $\lambda \approx 0.15$ as larger populations bid up rents through agglomeration-driven wage gains. The best causal estimates of the rent-supply elasticity put $\varepsilon$ at roughly 0.2. Supply wins, but by a margin thin enough that parameter uncertainty leaves the outcome unsettled for any individual city. The demand time constant $\tau$ is long, 5&ndash;10 years, as agglomeration benefits compound slowly. This slow fuse gives continuous builders like Tokyo a durable window of affordability even as their cities grow more productive.</p>
+  <p><b>Roads sit at or beyond the break-even point.</b> Duranton and Turner&rsquo;s establish that vehicle kilometers traveled increase in unit proportion to highway capacity: $\lambda \approx 1.0$. The congestion relief elasticity is also approximately 1.0, yielding a margin of zero or less. The demand time constant is short, leaving almost no window in which new capacity provides relief. No feasible rate of road construction can outrun induced demand. However, congestion pricing shifts the regime by reducing the effective demand elasticity from ${\sim}1.0$ to ${\sim}0.3$, well below any plausible supply elasticity.</p>
+  <div class="app-links" style="margin-top: 1em; font-size: 0.9rem;">
+    <a href="https://claude.ai/share/7cb69315-d90b-4870-8d00-05c85277ff08">Full conversation</a>
+  </div>
+</div>
+
+<div class="dialogue">
+  <p class="dialogue-date">April 2026</p>
+  <h3>Drinking vs. Driving</h3>
+  <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.8em;">Prompted by <a href="https://x.com/drethelin/status/2039849769368256922">@drethelin</a>: &ldquo;driving is NOT incredibly dangerous&rdquo; &mdash; &ldquo;<a href="https://x.com/drethelin/status/2040096516048814459">I think lots of drugs and drinking are probably way worse</a>&rdquo;</p>
+  <p>Drinking kills about 178,000 Americans per year versus 39,000 for driving. Per person, drinking is roughly 8x more dangerous annually &mdash; and 35x more dangerous if you develop alcohol use disorder, which happens to about 1 in 10 people who drink. You can&rsquo;t know beforehand if you&rsquo;re in that 10%.</p>
+  <div class="app-links" style="margin-top: 1em; font-size: 0.9rem;">
+    <a href="https://claude.ai/share/055c4d01-7dc3-4a76-86e6-e9863c995b9a">Full conversation</a>
+  </div>
+</div>
+
+<hr />
+<footer>
+<a href="/">home</a> | <a href="/biblio.html">papers</a> | <a href="/apps.html">apps</a> | <a href="//blog.ani.sh">blog</a>
+</footer>
+</body>
+</html>
